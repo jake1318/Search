@@ -1,0 +1,202 @@
+/* Container for the entire search page (centers content) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-bottom: 4rem; /* Extra bottom padding for footer spacing */
+  text-align: center;
+}
+
+/* Search Header */
+.search-header {
+  margin-bottom: 2rem;
+}
+
+.search-header .title {
+  font-size: 2.5rem;
+  color: cyan;
+  text-shadow: 0 0 10px cyan;
+  font-family: "Orbitron", sans-serif;
+  font-weight: bold;
+  margin: 0;
+}
+
+.search-header .description {
+  color: #0099cc;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px #0099cc;
+  margin-top: 0.5rem;
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Input with glowing neon border */
+.search-box .search-input {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #0099cc;
+  border-radius: 8px;
+  background: rgba(20, 20, 20, 0.8);
+  color: #e0e0e0;
+  box-shadow: 0 0 10px #0099cc;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-box .search-input:focus {
+  outline: none;
+  border-color: cyan;
+  box-shadow: 0 0 20px cyan;
+}
+
+/* Button with glowing neon border and updated hover effect */
+.search-box .search-button {
+  padding: 1rem 2rem;
+  background: #0099cc;
+  border: 2px solid #0099cc;
+  border-radius: 8px;
+  color: #1a1a1a;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #0099cc;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.search-box .search-button:hover:not(:disabled) {
+  background: #000;
+  color: cyan;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px cyan;
+}
+
+/* Results Container */
+.results-container {
+  margin-top: 2rem;
+}
+
+/* Center all section headers inside results */
+.results-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* AI Answer Section with glowing border */
+.ai-response {
+  background: rgba(0, 230, 255, 0.05);
+  border: 2px solid #0099cc;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  font-family: "Orbitron", sans-serif;
+  box-shadow: 0 0 10px #0099cc;
+  transition: box-shadow 0.3s ease;
+}
+
+.ai-response:hover {
+  box-shadow: 0 0 20px cyan;
+}
+
+/* Video Grid */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Video Card with glowing border */
+.video-card {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #0099cc;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 0 10px #0099cc;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px cyan;
+}
+
+.video-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.video-card h3 {
+  padding: 1rem;
+  margin: 0;
+  font-size: 1rem;
+  color: #0099cc;
+}
+
+/* Web Results with glowing border on cards */
+.web-links {
+  display: grid;
+  gap: 1rem;
+}
+
+.web-link-card {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #0099cc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px #0099cc;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.web-link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px cyan;
+}
+
+.web-link-card a {
+  color: #0099cc;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Footer */
+.footer {
+  height: 3rem;
+  background: rgba(20, 20, 20, 0.95);
+  border-top: 1px solid #0099cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e0e0e0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Link Hover Effect: turns any link cyan on hover */
+.container a:hover {
+  color: cyan !important;
+  transition: color 0.3s ease;
+}
