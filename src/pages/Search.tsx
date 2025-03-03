@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./Search.css"; // Import dedicated CSS for the search page
+import "./search.scss"; // Import dedicated CSS for the search page
 
 const Search: React.FC = () => {
   const [query, setQuery] = useState("");

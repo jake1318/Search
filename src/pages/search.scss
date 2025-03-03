@@ -1,0 +1,246 @@
+// Import variables if needed
+@import '../styles/abstracts/variables';
+
+.search-page {
+  min-height: 100vh;
+  background: $gradient-background;
+  padding: $spacing-xl 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+  }
+
+  // Search Form
+  .search-form {
+    margin-bottom: $spacing-xl;
+    
+    .input-group {
+      display: flex;
+      gap: $spacing-md;
+      
+      input {
+        flex: 1;
+        padding: $spacing-md;
+        background: $background-secondary;
+        border: 1px solid rgba($accent-primary, 0.2);
+        border-radius: $border-radius-md;
+        color: $text-primary;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        
+        &:focus {
+          outline: none;
+          border-color: $accent-primary;
+          box-shadow: 0 0 15px rgba($accent-primary, 0.3);
+        }
+        
+        &::placeholder {
+          color: $text-tertiary;
+        }
+      }
+      
+      button {
+        padding: $spacing-md $spacing-xl;
+        background: $gradient-primary;
+        color: $text-primary;
+        border: none;
+        border-radius: $border-radius-md;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 0 20px rgba($accent-primary, 0.5);
+        }
+        
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+          transform: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  // Search Results
+  .search-results {
+    display: grid;
+    gap: $spacing-lg;
+    
+    .result-card {
+      background: $background-tertiary;
+      border-radius: $border-radius-lg;
+      padding: $spacing-lg;
+      border: 1px solid rgba($accent-primary, 0.1);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 20px rgba($accent-primary, 0.2);
+      }
+      
+      .result-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: $spacing-md;
+        
+        h3 {
+          color: $text-primary;
+          margin: 0;
+          font-size: 1.25rem;
+          
+          a {
+            color: inherit;
+            text-decoration: none;
+            
+            &:hover {
+              color: $accent-primary;
+            }
+          }
+        }
+        
+        .result-meta {
+          color: $text-tertiary;
+          font-size: 0.9rem;
+        }
+      }
+      
+      .result-content {
+        color: $text-secondary;
+        margin-bottom: $spacing-md;
+        line-height: 1.6;
+      }
+      
+      .result-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-sm;
+        
+        .tag {
+          background: rgba($accent-secondary, 0.1);
+          color: $accent-secondary;
+          padding: $spacing-xs $spacing-sm;
+          border-radius: $border-radius-sm;
+          font-size: 0.85rem;
+          
+          &:hover {
+            background: rgba($accent-secondary, 0.2);
+          }
+        }
+      }
+    }
+  }
+
+  // Loading State
+  .loading {
+    text-align: center;
+    padding: $spacing-xl 0;
+    
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba($accent-primary, 0.1);
+      border-top-color: $accent-primary;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto $spacing-md;
+    }
+    
+    .loading-text {
+      color: $text-secondary;
+      font-size: 1.1rem;
+    }
+  }
+
+  // No Results State
+  .no-results {
+    text-align: center;
+    padding: $spacing-xl 0;
+    color: $text-secondary;
+    
+    h3 {
+      color: $text-primary;
+      margin-bottom: $spacing-md;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  // Error State
+  .error {
+    text-align: center;
+    padding: $spacing-xl 0;
+    color: $error;
+    
+    h3 {
+      margin-bottom: $spacing-md;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      color: $text-secondary;
+    }
+    
+    .retry-button {
+      margin-top: $spacing-lg;
+      padding: $spacing-sm $spacing-xl;
+      background: rgba($error, 0.1);
+      color: $error;
+      border: 1px solid $error;
+      border-radius: $border-radius-md;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: rgba($error, 0.2);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .search-page {
+    padding: $spacing-lg $spacing-md;
+    
+    .search-form {
+      .input-group {
+        flex-direction: column;
+        
+        button {
+          width: 100%;
+        }
+      }
+    }
+    
+    .result-card {
+      .result-header {
+        flex-direction: column;
+        gap: $spacing-sm;
+        
+        .result-meta {
+          margin-top: $spacing-xs;
+        }
+      }
+    }
+  }
+}

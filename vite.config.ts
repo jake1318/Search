@@ -11,4 +11,17 @@ export default defineConfig({
   build: {
     outDir: "dist",
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // This allows you to use variables and mixins across all SCSS files
+        additionalData: `
+          @import "./src/styles/abstracts/_variables.scss";
+          @import "./src/styles/abstracts/_mixins.scss";
+        `,
+      },
+    },
+    // Add source maps for better debugging
+    devSourcemap: true,
+  },
 });
